@@ -43,7 +43,6 @@ const DirectoryMenu = () => {
       {sections.map((section) => (
         <MenuItem
           title={section.title}
-          subtitle="SHOP NOW"
           imageUrl={section.imageUrl}
           size={section.size}
           key={section.id}
