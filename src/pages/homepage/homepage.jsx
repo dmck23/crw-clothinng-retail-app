@@ -1,4 +1,4 @@
-import DirectoryMenu from '../components/directory-menu/directory-menu';
+import DirectoryMenu from '../../components/directory-menu/directory-menu';
 import './homepage.styles.scss';
 
 const HomePage = () => {
