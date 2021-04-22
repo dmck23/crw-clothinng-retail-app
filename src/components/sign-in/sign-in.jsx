@@ -21,8 +21,8 @@ const SignIn = () => {
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}> 
-        <FormInput name="email" value={email} type="email" handleChange={e => setEmail(e.target.value)} label='email' required />
-        <FormInput name="password" value={password}  type="password" handleChange={e => setPassword(e.target.value)} label='password' required />
+        <FormInput name="email" value={email} type="email" handleChange={e => setEmail(e.target.value)} label='Email' required />
+        <FormInput name="password" value={password}  type="password" handleChange={e => setPassword(e.target.value)} label='Password' required />
         <div className="buttons">
             <CustomButton type="submit">Sign In</CustomButton>
             <CustomButton isGoogleSignIn onClick={signInWithGoogle}>Sign in with Google</CustomButton>
