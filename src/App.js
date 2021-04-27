@@ -8,12 +8,14 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {setCurrentUser} from './redux/user/users.action'
+import { selectCurrentUser } from './redux/user/user.selector';
+import CheckoutPage from './pages/checkout/checkout';
 
 function App() {
 
   const dispatch = useDispatch();
 
-  const currentUser = useSelector(state => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   
   useEffect(() => {
 
@@ -41,9 +43,10 @@ function App() {
     <div>
       <Header/>
       <Switch>
-        <Route exact path="/" component={HomePage} />
         <Route path="/shop" component={ShopPage} />
         <Route exact path="/sign-in" render={() => currentUser ? (<Redirect to='/' />) : (<SignUpAndSignInPage />) } />
+        <Route exact path='/checkout' component={CheckoutPage} />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     </div>
   );
