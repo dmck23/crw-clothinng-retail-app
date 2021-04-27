@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom';
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import { auth } from '../../firebase/firebase.utils';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import CartIcon from '../cart-icon/cart-icon';
+import CartDropdown from '../cart-dropdown/cart-dropdown';
 
 const Header = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
+  const hideDropdown = useSelector((state) => state.cart.hidden);
 
   return (
     <div className="header">
@@ -28,7 +31,9 @@ const Header = () => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hideDropdown ? null : <CartDropdown />}
     </div>
   );
 };
